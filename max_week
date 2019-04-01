@@ -1,3 +1,36 @@
+--max week written on KPI
+
+=' '&i
+f(Max(Max_semana) = 53, '1901w',if(Max(Max_semana) = 54, '1902w',
+if(Max(Max_semana) = 55, '1903w',if(Max(Max_semana) = 56, '1904w',
+if(Max(Max_semana) = 57, '1905w',if(Max(Max_semana) = 58, '1906w',
+if(Max(Max_semana) = 59, '1907w',if(Max(Max_semana) = 60, '1908w',
+if(Max(Max_semana) = 61, '1909w',if(Max(Max_semana) = 62, '1910w',
+if(Max(Max_semana) = 63, '1911w',if(Max(Max_semana) = 64, '1912w',
+if(Max(Max_semana) = 65, '1913w',if(Max(Max_semana) = 66, '1914w',
+if(Max(Max_semana) = 67, '1915w',if(Max(Max_semana) = 68, '1916w',
+if(Max(Max_semana) = 69, '1917w',if(Max(Max_semana) = 70, '1918w',
+if(Max(Max_semana) = 71, '1919w',if(Max(Max_semana) = 72, '1920w',
+if(Max(Max_semana) = 73, '1921w',if(Max(Max_semana) = 74, '1922w',
+if(Max(Max_semana) = 75, '1923w',if(Max(Max_semana) = 76, '1924w',
+if(Max(Max_semana) = 77, '1925w',if(Max(Max_semana) = 78, '1926w',
+if(Max(Max_semana) = 79, '1927w',if(Max(Max_semana) = 80, '1928w',
+if(Max(Max_semana) = 81, '1929w',if(Max(Max_semana) = 82, '1930w',
+if(Max(Max_semana) = 83, '1931w',if(Max(Max_semana) = 84, '1932w',
+if(Max(Max_semana) = 85, '1933w',if(Max(Max_semana) = 86, '1934w',
+if(Max(Max_semana) = 87, '1935w',if(Max(Max_semana) = 88, '1936w',
+if(Max(Max_semana) = 89, '1937w',if(Max(Max_semana) = 90, '1938w',
+if(Max(Max_semana) = 91, '1939w',if(Max(Max_semana) = 92, '1940w',
+if(Max(Max_semana) = 93, '1941w',if(Max(Max_semana) = 94, '1942w',
+if(Max(Max_semana) = 95, '1943w',if(Max(Max_semana) = 96, '1944w',
+if(Max(Max_semana) = 97, '1945w',if(Max(Max_semana) = 98, '1946w',
+if(Max(Max_semana) = 99, '1947w',if(Max(Max_semana) = 100, '1948w',
+if(Max(Max_semana) = 101, '1949w',if(Max(Max_semana) = 102, '1950w',
+if(Max(Max_semana) = 103, '1951w',if(Max(Max_semana) = 104, '1952w',
+))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+
+
 --Max Week current period
 
 SUM({<Max_semana={$(=Max(Max_semana))}>}SALES_VALUE_PEN_2)
