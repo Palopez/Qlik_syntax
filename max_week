@@ -1,0 +1,7 @@
+Max Week current period
+
+SUM({<Max_semana={$(=Max(Max_semana))}>}SALES_VALUE_PEN_2)
+
+Max Week year ago
+
+SUM({<Max_semana={$(=Max(Max_semana-52))}} TOTAL <SOLO_SEM> SALES_VALUE_PEN_2)-1
