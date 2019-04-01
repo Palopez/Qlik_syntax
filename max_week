@@ -1,7 +1,47 @@
-Max Week current period
+--Max Week current period
 
 SUM({<Max_semana={$(=Max(Max_semana))}>}SALES_VALUE_PEN_2)
 
-Max Week year ago
+--Max Week year ago
 
 SUM({<Max_semana={$(=Max(Max_semana-52))}} TOTAL <SOLO_SEM> SALES_VALUE_PEN_2)-1
+
+--if a week has nulls, to no appear on the filter pane
+
+if(week='-',null(),week) AS Week
+
+-- Filter forced from JS
+in this case the data is from a retailer, so all the data must be filtered by the retailer. Retailer A should´t have access to see
+data from Retailer B, or Retailer C or Retailer D.
+
+So we put this line into the filter pane. And from the mashup, on the js section we force the retailer.
+
+On Qlik sense:
+
+=if(RETAIL= GetFieldSelections(RETAIL),RETAIL,null())
+
+On Mashup(js):
+
+app.getObject('Filtros', 'UjpkFpg').then(() => {
+	  app.field('RETAIL').selectMatch('RetailerA',false); 
+
+	})	
+  
+
+--Force filter from js and set filter value
+
+var app = qlik.openApp('fff228b3-6e99-4b37-999b-c3b6751cefc9', config);
+	app.getObject('Filter','UjpkFpg');
+	app.getObject('Kpi-object','XJRdXP');
+	app.getObject('Week','estEVm');
+  
+  app.getObject('Filter', 'UjpkFpg').then(() => {
+	  app.field('RETAIL').selectMatch('RETAILERB',false); 
+
+	})	
+	app.getObject('Filter','UjpkFpg').then(() => {
+	  app.field('Week').selectMatch('1912w', false)
+	})
+	
+
+
