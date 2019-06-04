@@ -1,0 +1,44 @@
+To calculate the total of a perdio minus what is expected.
+
+Shows the difference between them.
+
+
+/*PERFIL DE IMAGEN NORMALIZADO*/
+(
+	Sum({<[Perfil Imagen Marca]={'Banco Bci'}>}PONDERADOR)/Sum(Total PONDERADOR)*100
+)
+-
+(
+  (
+      sum(Total Aggr(Sum({<[Perfil Imagen Marca]={'Banco Bci'}>}PONDERADOR)/Sum(Total PONDERADOR)*100, [Perfil Imagen Atributo]))
+  )
+  *
+  (
+  	//*Los nombres de los otros BANCOS
+    ((Sum({<[Perfil Imagen Marca]={'Banco Bci'}>}PONDERADOR)/Sum(Total PONDERADOR))*100)+
+    ((Sum({<[Perfil Imagen Marca]={'Banco Bice'}>}PONDERADOR)/Sum(Total PONDERADOR))*100)+
+    ((Sum({<[Perfil Imagen Marca]={'Banco De Chile'}>}PONDERADOR)/Sum(Total PONDERADOR))*100)+
+    ((Sum({<[Perfil Imagen Marca]={'Banco Edwards-Citi'}>}PONDERADOR)/Sum(Total PONDERADOR))*100)+
+    ((Sum({<[Perfil Imagen Marca]={'Banco Estado'}>}PONDERADOR)/Sum(Total PONDERADOR))*100)+
+    ((Sum({<[Perfil Imagen Marca]={'Banco Falabella'}>}PONDERADOR)/Sum(Total PONDERADOR))*100)+
+    ((Sum({<[Perfil Imagen Marca]={'Banco Itaú'}>}PONDERADOR)/Sum(Total PONDERADOR))*100)+
+    ((Sum({<[Perfil Imagen Marca]={'Banco Santander'}>}PONDERADOR)/Sum(Total PONDERADOR))*100)+
+    ((Sum({<[Perfil Imagen Marca]={'Banco Scotiabank-Bbva'}>}PONDERADOR)/Sum(Total PONDERADOR))*100)+
+    ((Sum({<[Perfil Imagen Marca]={'Banco Security'}>}PONDERADOR)/Sum(Total PONDERADOR))*100)
+  )
+  /
+  (
+  	//Los nombres de los otros BANCOS
+    sum(Total Aggr(Sum({<[Perfil Imagen Marca]={'Banco Bci'}>}PONDERADOR)/Sum(Total PONDERADOR)*100, [Perfil Imagen Atributo]))+
+    sum(Total Aggr(Sum({<[Perfil Imagen Marca]={'Banco Bice'}>}PONDERADOR)/Sum(Total PONDERADOR)*100, [Perfil Imagen Atributo]))+
+    sum(Total Aggr(Sum({<[Perfil Imagen Marca]={'Banco De Chile'}>}PONDERADOR)/Sum(Total PONDERADOR)*100, [Perfil Imagen Atributo]))+
+    sum(Total Aggr(Sum({<[Perfil Imagen Marca]={'Banco'}>}PONDERADOR)/Sum(Total PONDERADOR)*100, [Perfil Imagen Atributo]))+
+    sum(Total Aggr(Sum({<[Perfil Imagen Marca]={'Banco Edwards-Citi'}>}PONDERADOR)/Sum(Total PONDERADOR)*100, [Perfil Imagen Atributo]))+
+    sum(Total Aggr(Sum({<[Perfil Imagen Marca]={'Banco Estado'}>}PONDERADOR)/Sum(Total PONDERADOR)*100, [Perfil Imagen Atributo]))+
+    sum(Total Aggr(Sum({<[Perfil Imagen Marca]={'Banco Falabella'}>}PONDERADOR)/Sum(Total PONDERADOR)*100, [Perfil Imagen Atributo]))+
+    sum(Total Aggr(Sum({<[Perfil Imagen Marca]={'Banco Itaú'}>}PONDERADOR)/Sum(Total PONDERADOR)*100, [Perfil Imagen Atributo]))+
+    sum(Total Aggr(Sum({<[Perfil Imagen Marca]={'Banco Santander'}>}PONDERADOR)/Sum(Total PONDERADOR)*100, [Perfil Imagen Atributo]))+
+    sum(Total Aggr(Sum({<[Perfil Imagen Marca]={'Banco Scotiabank-Bbva'}>}PONDERADOR)/Sum(Total PONDERADOR)*100, [Perfil Imagen Atributo]))+
+    sum(Total Aggr(Sum({<[Perfil Imagen Marca]={'Banco Security'}>}PONDERADOR)/Sum(Total PONDERADOR)*100, [Perfil Imagen Atributo]))
+  )
+)
